@@ -1,0 +1,51 @@
+{% extends "chatroom/base.html" %}
+{% load staticfiles %}
+{% block title %}聊天室{% endblock %}
+
+{% block extrahead %}
+<script src="{% static 'js/knockout.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+<script src="{% static 'chatroom/js/chatroom.js' %}"></script>
+<script>
+	$(document).ready(function() {
+	document.chatroomModule = new ChatroomModule("{% url 'chatroom:poll' %}",
+	"{% url 'chatroom:push' %}");
+	ko.applyBindings(document.chatroomModule, $("#chatroom").get(0));
+	{% if chat_target %}
+	document.chatroomModule.putReceiver({{chat_target.id}},
+	"{{chat_target.name}}");
+	{% endif %}
+	document.chatroomModule.pollMessage();
+	setInterval(function() {
+	document.chatroomModule.pollMessage();
+	}, 5000);
+	});
+</script>
+{% endblock %}
+
+{% block branding %}
+<h1>聊天室</h1>
+{% endblock %}
+
+{% block coltype %}{% endblock %}
+
+{% block content %}
+<div id="chatroom" style="width:100%;">
+	<div "object-tools"><strong>当前用户:</strong><span data-bind="text: username"></span></div>
+	<hr/>
+	<div data-bind="foreach: messageList" style="width:100%; height:600px;">
+		<div>
+			[<strong><span data-bind="text: name, click: $parent.clickReceiver"></span></strong>]
+			对
+			[<strong><span data-bind="text: receiver"></span></strong>] 说:
+			<span data-bind="text: message"></span>
+		</div>
+	</div>
+	<div>
+		<strong><span style="width:100px;" data-bind="text: receiver"></span></strong>
+		<input type="text" style="width:600px;" data-bind="value: message"/>
+		<button data-bind="click: clickSendBtn, enable: isSending != true && receiverId">发送</button>
+		<button data-bind="click: clickCleanBtn">清屏</button>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "chatroom/base.html" %}
+
+{% block title %}访问聊天室{% endblock %}
+
+{% block branding %}<h1>访问聊天室</h1>{% endblock %}
+
+{% block content %}
+<div>
+	<h1>欢迎您访问聊天室</h1>
+	您如果需要以用户身份访问，请点击
+	<a href="{% url 'accounts:login' %}?next={{chatroom_url}}">登入</a>
+	，或者以
+	<a href="{{chatroom_url}}">匿名</a>
+	方式访问。
+</div>
+{% endblock %}

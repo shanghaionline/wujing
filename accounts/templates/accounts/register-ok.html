@@ -1,0 +1,13 @@
+{% extends "accounts/base.html" %}
+{% block title %}
+注册成功
+{% endblock %}
+
+{% block branding %}
+<h1>注册成功</h1>
+{% endblock %}
+
+{% block content %}
+<h2>恭喜您已经注册成功。</h2>
+<a href="{% url 'accounts:login' %}">请点此登入</a>
+{% endblock %}

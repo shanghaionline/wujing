@@ -1,0 +1,44 @@
+{%extends "accounts/base.html"%}
+{% load staticfiles %}
+
+{% block extrastyle %}
+{{block.supper}}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css'%}"/>
+{% endblock %}
+
+{% block title %}注册{% endblock %}
+{% block branding %}<h1>注册系统</h1>{% endblock %}
+
+{% block bodyclass %} login{% endblock %}
+
+{% block content %}
+<div id="content-main colM">
+	<form action="{% url 'accounts:register' %}" method="post" class="form-horizontal">
+    {% csrf_token %}
+		<div class="form-row">
+			{{ form.username.errors }}
+			<label for="id_username" class="required">
+				用户名:
+			</label>
+			{{form.username}}
+		</div>
+		<div class="form-row">
+			{{ form.password.errors }}
+			<label for="id_password" class="required">
+				密码:
+			</label>
+			{{form.password}}
+		</div>
+		<div class="form-row">
+			{{ form.password_again.errors }}
+			<label for="id_password_again" class="required">
+				再输入密码:
+			</label>
+			{{form.password_again}}
+		</div>
+		<div class="submit-row">
+			<label>&nbsp;</label><input type="submit" value="注册"/>
+		</div>
+</div>
+{% endblock %}
+

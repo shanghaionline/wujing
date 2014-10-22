@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+{% block title %}
+用户后台
+{% endblock %}
+
+{% block branding %}
+<h1>用户后台界面</h1>
+{% endblock %}
+
+{% block content %}
+<h2>您已经登出系统。</h2>
+<a href="{% url 'accounts:login' %}">再次登入</a>
+{% endblock %}
+
