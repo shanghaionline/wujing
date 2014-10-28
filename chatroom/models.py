@@ -66,11 +66,9 @@ class DialogueManager(models.Manager):
     def get_dialogue(self, user, target):
         try:
             dialogue = Dialogue.objects.get(owner = user, target = target)
-            print('============================================')
         except Dialogue.DoesNotExist:
             dialogue = Dialogue(owner = user, target = target, right = 'R',
                                 last_access = datetime.datetime.fromtimestamp(0))
-            print('++++++++++++++++++++++++++++++++++++++++++++')
             dialogue.save()
         return dialogue
         

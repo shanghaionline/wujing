@@ -1,6 +1,7 @@
 import json
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import user_passes_test
 from django.http import Http404, HttpResponse
 from chatroom import models
@@ -36,6 +37,7 @@ def room(request, name):
 def room_admin(request):
     return room(request, None)
 
+@csrf_exempt
 def push(request):
     form = forms.PushMessageForm(request.POST)
     user = models.ChatUser.objects.get_user(request.user, 
@@ -59,6 +61,7 @@ def chat_user_name(user):
         name = user.user.username
     return name
 
+@csrf_exempt
 def poll(request):
     user = models.ChatUser.objects.get_user(request.user, 
                                             request.session.get('chat_user_id', 0))
