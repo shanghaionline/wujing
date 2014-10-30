@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BOARD</title>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'msgboard/js/msgboard.js' %}"></script>
+		<script>
+			function agree_msg(id) {
+			  $.post("{% url 'msgboard:agree' %}", {id:id}, function(data) {
+          $("#agree_msg_" + id).html(data);
+			  });
+			  return false;
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<form action="{% url 'msgboard:post' %}" method="post">
+				{% csrf_token %}
+				{{form}}
+				<input type="submit"/>
+			</form>
+		</div>
+		{% for item in contacts.object_list %}
+		<div>
+			{{item.user.username}} | 
+			<span id="agree_msg_{{item.id}}">{{item.agreeTimes}}</span> | 
+			{{item.created | date:"SHORT_DATE_FORMAT"}} | <a href="javascript:agree_msg({{item.id}});">agree</a><br/>
+			{{item.content}}
+		</div>
+		{% endfor %}
+
+		<div>
+			{% for item in contacts.paginator.page_range %}
+			<a href="{% url 'msgboard:list' item %}">{{ item }}</a>
+			{% endfor %}
+		</div>
+	</body>
+</html>

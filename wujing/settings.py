@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'accounts',
     'chatroom',
+    'msgboard',
 )
 
 MIDDLEWARE_CLASSES = (
