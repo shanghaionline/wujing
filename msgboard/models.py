@@ -7,5 +7,12 @@ class BoardMsg(models.Model):
     content = models.TextField()
     agreeTimes = models.IntegerField(default = 0)
     created = models.DateTimeField()
+
+    def __str__(self):
+        return self.content
+
+    class Meta:
+        verbose_name = '留言'
+        verbose_name_plural = verbose_name
     
 

@@ -1,11 +1,11 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Paper
 
 # Create your views here.
 
-def show(request):
-    paper = Paper.objects.all()[0]
+def show(request, id):
+    paper = get_object_or_404(Paper, pk = id)
     
     return render(request, 'psytest/show.html', {
         'data': json.dumps(paper_to_json(paper))
@@ -14,7 +14,7 @@ def show(request):
 def paper_to_json(paper):
     json_paper = {'name':paper.name}
     json_paper['questions'] = []
-    for q in paper.question_set.all():
+    for q in paper.question_set.order_by('order').all():
         q_item = {'text': q.text, 'order': q.order,'id':q.pk}
         q_item['options'] = []
         for o in q.option_set.all():
