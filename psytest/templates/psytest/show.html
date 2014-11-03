@@ -15,18 +15,17 @@
     </script>
   </head>
   <body>
-    <div data-bind="foreach: history">
-      <span data-bind="text:idx"></span>:
-      <span data-bind="text:score"></span>|
-    </div>
     <div data-bind="visible: !isEnd()">
-      <h1 data-bind="text: question">Hello</h1>
+      <b data-bind="text: question"></b>
       <div data-bind="foreach: options">
-				<input type="radio" name="testoption" data-bind="click: $parent.clickOption"></input>
-				<label data-bind="text: text, click: $parent.clickOption"></label>
+				<div>
+					<input type="radio" name="testoption" data-bind="click: $parent.clickOption"></input>
+					<label data-bind="text: text, click: $parent.clickOption"></label>
+				</div>
       </div>
       <div>
-	<a href="#" data-bind="click: clickUndo, visible: history().length > 0">BACK</a>
+				<input type="button" value="上一题" style="padding: 5px 15px 5px 15px;background-color: #26a5e9;color: #fff;font-size: 14px;margin-top: 10px;"
+							 data-bind="click: clickUndo, visible: history().length > 0"/>
       </div>
     </div>
     <div data-bind="visible: isEnd">
