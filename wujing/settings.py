@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'accounts',
     'chatroom',
     'msgboard',
+    'psytest',
 )
 
 MIDDLEWARE_CLASSES = (

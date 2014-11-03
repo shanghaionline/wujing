@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TEST</title>
+    <script src="{% static 'psytest/js/jquery.min.js' %}"></script>
+    <script src="{% static 'psytest/js/knockout.js' %}"></script>
+    <script src="{% static 'psytest/js/psytest.js' %}"></script>
+    <script>
+      $(document).ready(function() {
+      var m = new PsyTestModel($.parseJSON("{{data|escapejs}}"));
+      ko.applyBindings(m);
+      });
+      
+    </script>
+  </head>
+  <body>
+    <div data-bind="foreach: history">
+      <span data-bind="text:idx"></span>:
+      <span data-bind="text:score"></span>|
+    </div>
+    <div data-bind="visible: !isEnd()">
+      <h1 data-bind="text: question">Hello</h1>
+      <div data-bind="foreach: options">
+				<input type="radio" name="testoption" data-bind="click: $parent.clickOption"></input>
+				<label data-bind="text: text, click: $parent.clickOption"></label>
+      </div>
+      <div>
+	<a href="#" data-bind="click: clickUndo, visible: history().length > 0">BACK</a>
+      </div>
+    </div>
+    <div data-bind="visible: isEnd">
+      <span data-bind="text: result"></span>
+    </div>
+  </body>
+</html>
