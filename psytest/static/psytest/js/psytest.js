@@ -32,7 +32,6 @@ function PsyTestModel(paper_data) {
 
     function showResult() {
 				self.isEnd(true);
-				console.log(self.score());
 				for (var i = 0; i < paper_data.results.length; i += 1) {
 						var r = paper_data.results[i];
 						var score = self.score();
