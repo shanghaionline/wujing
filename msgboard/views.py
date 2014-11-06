@@ -35,11 +35,22 @@ def agree(request):
 
 @login_required
 def post(request):
+    if request.method == 'GET':
+        return render(request, 'msgboard/post.html', {
+            'form': forms.BoardMsgForm(),
+            'msg_tags': models.MsgTag.objects.all()
+        })
     form = forms.BoardMsgForm(request.POST)
     if form.is_valid():
         c = models.BoardMsg(user = request.user,
+                            title = form.cleaned_data['title'],
                             content = form.cleaned_data['content'],
+                            tag = form.cleaned_data['tag'],
                             created = timezone.now())
         c.save()
-    return redirect('msgboard:list', page = 1)
-
+        return redirect('msgboard:list', page = 1)
+    else:
+        return render(request, 'msgboard/post.html', {
+            'form': form,
+            'msg_tags': models.MsgTag.objects.all()
+        })

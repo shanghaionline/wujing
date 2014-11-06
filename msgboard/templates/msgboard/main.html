@@ -1,0 +1,112 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>晨曦心理</title>
+<script src="{% static 'msgboard/js/jquery.min.js' %}"></script>
+<script src="{% static 'msgboard/js_source/focus.js' %}"></script>
+<script src="{% static 'msgboard/js_source/cx.js' %}"></script>
+{% block javascript %}{% endblock %}
+<link rel="stylesheet" href="{% static 'msgboard/images/style.css' %}" type="text/css" />
+{% block stylesheet %}{% endblock %}
+</head>
+<body>
+	<div class="block">
+		<div class="navbar">
+			<ul>
+				<li class="sele"><a href="">首页</a></li>
+				<li class="m1"><a href="">心闻播报</a></li>
+				<li class="m2"><a href="">心理百科</a></li>
+				<li class="m3"><a href="">心理测试</a></li>
+				<li class="m4"><a href="">心理论坛</a></li>
+				<li class="m5"><a href="">心海拾贝</a></li>
+				<li class="m6"><a href="">心灵有约</a></li>
+			</ul>
+			<ul class="submenu s1">
+				<li><a href="">工作动态</a></li>
+				<li><a href="">领导讲话</a></li>
+				<li><a href="">政策法规</a></li>
+				<li><a href="">公告通知</a></li>
+			</ul>
+			<ul class="submenu s2">
+				<li><a href="">心理专题</a></li>
+				<li><a href="">心理知识</a></li>
+				<li><a href="">心理行为训练</a></li>
+				<li><a href="">经验交流</a></li>
+				<li><a href="">案例分析</a></li>
+			</ul>
+			<ul class="submenu s3">
+				<li><a href="">心理测量</a></li>
+				<li><a href="">趣味测试</a></li>
+			</ul>
+			<ul class="submenu s5">
+				<li><a href="{% url 'msgboard:list' 1 %}">树洞</a></li>
+				<li><a href="">照片墙</a></li>
+				<li><a href="">治愈系</a></li>
+				<li><a href="">心理游戏</a></li>
+				<li><a href="">心理影院</a></li>
+			</ul>
+			{% if not user.is_authenticated %}
+			<div class="btn_login">
+				<span><a href="{% url 'accounts:login' %}?next={% url 'msgboard:list' 1%}">登录</a></span>
+				<span><a href="{% url 'accounts:register' %}">注册</a></span>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="block grey">
+		<div class="search">
+			<img src="{% static 'msgboard/images/logo.gif' %}" class="logo" />
+			<img src="{% static 'msgboard/images/samp_banner_1.gif' %}" class="banner_top" />
+		</div>
+	</div>
+	<div class="block">
+		<div class="page_body">
+			<div class="banner2">
+				<img src="{% static 'msgboard/images/samp_banner_2.gif' %}" />
+			</div>
+			<div class="crumb">
+				<p>
+					<a href="index.html">首页</a> &gt; 
+					<a href="list.html">心海拾贝</a> &gt; 
+					<a href="{% url 'msgboard:list' 1 %}">树洞</a>
+				</p>
+			</div>
+			<div class="content_box">
+				<div class="content_left">
+					{% block content %}
+					{% endblock %}
+				</div>
+				<div class="content_right">
+					<div class="menu_right">
+						<ul>
+							<li><a href="{% url 'msgboard:list' 1 %}" class="selected">树洞</a></li>
+							<li><a href="">照片墙</a></li>
+							<li><a href="">治愈系</a></li>
+							<li><a href="">心理游戏</a></li>
+							<li><a href="">心理影院</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="block">
+		<div class="bott">
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">加入我们</a></li>
+				<li><a href="">联系我们</a></li>
+				<li><a href="">免责声明</a></li>
+				<li><a href="">友情链接</a></li>
+				<li><a href="">网站地图</a></li>
+				<li><a href="">手机版</a></li>
+				<li><a href="">手机应用</a></li>
+				<li><a href="">投稿</a></li>
+			</ul>
+			<p>&reg; 2005-2014 xinli001.com All Rights Reserved. 粤ICP备12051153号 安全联盟</p>
+		</div>
+	</div>
+</body>
+</html>

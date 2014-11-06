@@ -1,40 +1,48 @@
+{% extends 'msgboard/main.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>BOARD</title>
-		<script src="{% static 'js/jquery.min.js' %}"></script>
-		<script src="{% static 'msgboard/js/msgboard.js' %}"></script>
-		<script>
-			function agree_msg(id) {
-			  $.post("{% url 'msgboard:agree' %}", {id:id}, function(data) {
-          $("#agree_msg_" + id).html(data);
-			  });
-			  return false;
-			}
-		</script>
-	</head>
-	<body>
-		<div>
-			<form action="{% url 'msgboard:post' %}" method="post">
-				{% csrf_token %}
-				{{form}}
-				<input type="submit"/>
-			</form>
-		</div>
-		{% for item in contacts.object_list %}
-		<div>
-			{{item.user.username}} | 
-			<span id="agree_msg_{{item.id}}">{{item.agreeTimes}}</span> | 
-			{{item.created | date:"SHORT_DATE_FORMAT"}} | <a href="javascript:agree_msg({{item.id}});">agree</a><br/>
-			{{item.content}}
-		</div>
-		{% endfor %}
+{% block javascript %}
+<script src="{% static 'msgboard/js/msgboard.js' %}"></script>
+<script>
+	function agree_msg(id) {
+	$.post("{% url 'msgboard:agree' %}", {id:id}, function(data) {
+  $("#agree_msg_" + id).html(data);
+	});
+	return false;
+	}
+</script>
+{% endblock %}
 
-		<div>
+{% block content %}
+<div class="treehole">
+	<div class="tree_title">
+		<p>用另一种方式去放下,</p>
+		<a href="{% url 'msgboard:post' %}"><input type="button" value="请来这里留言" class="btn_msg" /></a>
+	</div>
+	{% for item in contacts.object_list %}
+	<div class="tree_thread">
+		<img src="{% static 'msgboard/images/samp_pic_03.jpg' %}" class="portrait" />
+		<p><b>{{item.title}}</b></p>
+		<p>{{item.content}}</p>
+		<h3>{{item.user.username}} : {{item.created | date:"SHORT_DATE_FORMAT"}}</h3>
+		<span>
+			<a href="javascript:" onClick="agree_msg({{item.id}});"><img src="{% static 'msgboard/images/icon_agree.png' %}"/></a>
+			<span id="agree_msg_{{item.id}}">{{item.agreeTimes}}</span>
+		</span>
+	</div>
+	{% endfor %}
+	<div class="page_list">
+		<p>
+			{% if contacts.has_previous %}
+			<a href="{% url 'msgboard:list' contacts.previous_page_number %}">上一页</a>
+			{% endif %}
 			{% for item in contacts.paginator.page_range %}
 			<a href="{% url 'msgboard:list' item %}">{{ item }}</a>
 			{% endfor %}
-		</div>
-	</body>
-</html>
+			{% if contacts.has_next %}
+			<a href="{% url 'msgboard:list' contacts.next_page_number %}">下一页</a>
+			{% endif %}
+		</p>
+	</div>
+</div>
+{% endblock %}
+

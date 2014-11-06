@@ -1,0 +1,143 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>晨曦心理</title>
+<script src="{% static 'msgboard/js/jquery.min.js' %}"></script>
+<script src="{% static 'msgboard/js_source/focus.js' %}"></script>
+<script src="{% static 'msgboard/js_source/cx.js' %}"></script>
+{% block script %}{% endblock %}
+<link rel="stylesheet" href="{% static 'msgboard/images/style.css' %}" type="text/css" />
+{% block csstyle %}{% endblock %}
+</head>
+<body>
+	<div class="block">
+		<div class="navbar">
+			<ul>
+				<li class="sele"><a href="">首页</a></li>
+				<li class="m1"><a href="">心闻播报</a></li>
+				<li class="m2"><a href="">心理百科</a></li>
+				<li class="m3"><a href="">心理测试</a></li>
+				<li class="m4"><a href="">心理论坛</a></li>
+				<li class="m5"><a href="">心海拾贝</a></li>
+				<li class="m6"><a href="">心灵有约</a></li>
+			</ul>
+			<ul class="submenu s1">
+				<li><a href="">工作动态</a></li>
+				<li><a href="">领导讲话</a></li>
+				<li><a href="">政策法规</a></li>
+				<li><a href="">公告通知</a></li>
+			</ul>
+			<ul class="submenu s2">
+				<li><a href="">心理专题</a></li>
+				<li><a href="">心理知识</a></li>
+				<li><a href="">心理行为训练</a></li>
+				<li><a href="">经验交流</a></li>
+				<li><a href="">案例分析</a></li>
+			</ul>
+			<ul class="submenu s3">
+				<li><a href="">心理测量</a></li>
+				<li><a href="">趣味测试</a></li>
+			</ul>
+			<ul class="submenu s5">
+				<li><a href="">树洞</a></li>
+				<li><a href="">照片墙</a></li>
+				<li><a href="">治愈系</a></li>
+				<li><a href="">心理游戏</a></li>
+				<li><a href="">心理影院</a></li>
+			</ul>
+			<div class="btn_login">
+				<span><a href="">登录</a></span>
+				<span><a href="">注册</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="block grey">
+		<div class="search">
+			<img src="{% static 'msgboard/images/logo.gif' %}" class="logo" />
+			<img src="{% static 'msgboard/images/samp_banner_1.gif' %}" class="banner_top" />
+		</div>
+	</div>
+	<div class="block">
+		<div class="page_body">
+			<div class="banner2">
+				<img src="images/samp_banner_2.gif" />
+			</div>
+			<div class="crumb">
+				<p><a href="index.html">首页</a> &gt; <a href="list.html">心海拾贝</a> &gt; <a href="list.html">树洞</a>
+			</div>
+			<div class="content_box">
+				<div class="content_left">
+					<div class="treehole">
+						<div class="tree_title">
+							<p>用另一种方式去放下，这里有<span>986543</span>个秘密，而且每天都在增长。</p>
+							<input type="button" value="请来这里留言" class="btn_msg" />
+						</div>
+						<div class="tree_thread">
+							<img src="images/samp_pic_03.jpg" class="portrait" />
+							<p>我觉得我是个病人，都是26岁的人了，没有跟女人做过但是最近很想，而且有时还想过找个小姐解决掉算了，最后自己用右手解决掉了，但是还是天天幻想跟找个女做一次。。。我怎么了，我是个病人！</p>
+							<h3>匿名：2014-08-28</h3>
+							<span><a href=""><img src="images/icon_agree.png" /></a>999</span>
+						</div>
+						<div class="tree_thread">
+							<img src="images/samp_pic_03.jpg" class="portrait" />
+							<p>我觉得我是个病人，都是26岁的人了，没有跟女人做过但是最近很想，而且有时还想过找个小姐解决掉算了，最后自己用右手解决掉了，但是还是天天幻想跟找个女做一次。。。我怎么了，我是个病人！</p>
+							<h3>匿名：2014-08-28</h3>
+							<span><a href=""><img src="images/icon_agree.png" /></a>999</span>
+						</div>
+						<div class="tree_thread">
+							<img src="images/samp_pic_03.jpg" class="portrait" />
+							<p>我觉得我是个病人，都是26岁的人了，没有跟女人做过但是最近很想，而且有时还想过找个小姐解决掉算了，最后自己用右手解决掉了，但是还是天天幻想跟找个女做一次。。。我怎么了，我是个病人！</p>
+							<h3>匿名：2014-08-28</h3>
+							<span><a href=""><img src="images/icon_agree.png" /></a>999</span>
+						</div>
+						<div class="tree_thread">
+							<img src="images/samp_pic_03.jpg" class="portrait" />
+							<p>我觉得我是个病人，都是26岁的人了，没有跟女人做过但是最近很想，而且有时还想过找个小姐解决掉算了，最后自己用右手解决掉了，但是还是天天幻想跟找个女做一次。。。我怎么了，我是个病人！</p>
+							<h3>匿名：2014-08-28</h3>
+							<span><a href=""><img src="images/icon_agree.png" /></a>999</span>
+						</div>
+						<div class="tree_thread">
+							<img src="images/samp_pic_03.jpg" class="portrait" />
+							<p>我觉得我是个病人，都是26岁的人了，没有跟女人做过但是最近很想，而且有时还想过找个小姐解决掉算了，最后自己用右手解决掉了，但是还是天天幻想跟找个女做一次。。。我怎么了，我是个病人！</p>
+							<h3>匿名：2014-08-28</h3>
+							<span><a href=""><img src="images/icon_agree.png" /></a>999</span>
+						</div>
+					</div>
+					<div class="page_list">
+						<p><a href="">上一页</a>第<span>1</span><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a><a href="">6</a><a href="">7</a><a href="">8</a><a href="">下一页</a></p>
+					</div>
+				</div>
+				<div class="content_right">
+					<div class="menu_right">
+						<ul>
+							<li><a href="" class="selected">树洞</a></li>
+							<li><a href="">照片墙</a></li>
+							<li><a href="">治愈系</a></li>
+							<li><a href="">心理游戏</a></li>
+							<li><a href="">心理影院</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="block">
+		<div class="bott">
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">加入我们</a></li>
+				<li><a href="">联系我们</a></li>
+				<li><a href="">免责声明</a></li>
+				<li><a href="">友情链接</a></li>
+				<li><a href="">网站地图</a></li>
+				<li><a href="">手机版</a></li>
+				<li><a href="">手机应用</a></li>
+				<li><a href="">投稿</a></li>
+			</ul>
+			<p>&reg; 2005-2014 xinli001.com All Rights Reserved. 粤ICP备12051153号 安全联盟</p>
+		</div>
+	</div>
+</body>
+</html>

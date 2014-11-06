@@ -1,0 +1,34 @@
+{% extends 'msgboard/main.html' %}
+{% block content %}
+<div class="treehole">
+	<div class="tree_title">
+		<p>在树洞中说出心中的<span>秘密</span>。</p>
+	</div>
+	<div class="tree_thread_txt">
+		<form action="{% url 'msgboard:post' %}" method="post">
+			{% csrf_token %}
+			<p>
+				<font style="{% if form.title.errors %}color:red;{% endif %}">标题：</font>
+				<input type="text" class="input_1" name="title" 
+							 value="{% if form.title.value %}{{ form.title.value }}{% endif %}"/>
+				
+			</p>
+			<p>
+				<font {% if form.content.errors %}color:red;{% endif %}>内容：</font>
+				<textarea class="input_text" name="content">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
+			</p>
+			<p><span style="{% if form.tag.errors %}color:red;{% endif %}">秘密类别：</span>
+				{% for item in msg_tags %}
+				<input type="radio" class="checkbox" name="tag" value="{{ item.text }}">
+				{{ item.text }}
+				{% endfor %}
+			</p>
+			<p>
+				<span>
+					<input type="submit" class="submit_btn" value="递交"/>
+				</span>
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}
