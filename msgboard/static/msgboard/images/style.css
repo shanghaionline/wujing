@@ -1420,9 +1420,13 @@ color:#999;
 }
 
 .tree_thread_txt {float:left; width:680px; border-bottom:1px solid #dfdfdf; padding:10px; font-size:14px; color:#666}
-.tree_thread_txt p{padding:10px 0; float:left; clear:both}
+.tree_thread_txt h4{padding:10px 0; font-size:12px; font-weight:normal; color:#f00}
+.tree_thread_txt p{padding:10px 0; float:left; width:680px; height:auto}
 .tree_thread_txt p font{float:left}
+.tree_thread_txt p b{color:#f00; font-weight:normal}
+.tree_thread_txt p i{font-style:normal; font-size:12px; color:#f00; float:right}
+.tree_thread_txt .checkbox{margin-left:5px}
 .tree_thread_txt .input_1{width:620px; height:30px; line-height:30px; border:1px solid #ccc; vertical-align:middle; float:right}
 .tree_thread_txt .input_text{width:618px; height:200px; overflow:hidden; line-height:28px; border:1px solid #ccc; vertical-align:middle; float:right}
-.tree_thread_txt a.submit_btn{padding:5px 10px; background:#26a5e9; color:#fff; border:1px solid #26a5e9; text-decoration:none; float:left; margin-left:45px}
-.tree_thread_txt a.submit_btn:hover{padding:5px 10px; background:#fff; border:1px solid #26a5e9; color:#26a5e9; text-decoration:none}
+.tree_thread_txt .submit_btn{padding:5px 10px; background:#26a5e9; color:#fff; border:1px solid #26a5e9; text-decoration:none; float:left; margin-left:45px; cursor:pointer}
+.tree_thread_txt .submit_btn:hover{padding:5px 10px; background:#fff; border:1px solid #26a5e9; color:#26a5e9; text-decoration:none}

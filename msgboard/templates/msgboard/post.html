@@ -7,27 +7,45 @@
 	<div class="tree_thread_txt">
 		<form action="{% url 'msgboard:post' %}" method="post">
 			{% csrf_token %}
+      <h4>带*为必填项</h4>
 			<p>
-				<font style="{% if form.title.errors %}color:red;{% endif %}">标题：</font>
-				<input type="text" class="input_1" name="title" 
-							 value="{% if form.title.value %}{{ form.title.value }}{% endif %}"/>
-				
+				<font><b>*</b>标题：</font>
+				<input type="text" class="input_1" name="title" value="{% if form.title.value %}{{ form.title.value }}{% endif %}"/>
 			</p>
 			<p>
-				<font {% if form.content.errors %}color:red;{% endif %}>内容：</font>
-				<textarea class="input_text" name="content">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
-			</p>
-			<p><span style="{% if form.tag.errors %}color:red;{% endif %}">秘密类别：</span>
-				{% for item in msg_tags %}
-				<input type="radio" class="checkbox" name="tag" value="{{ item.text }}">
-				{{ item.text }}
+				{% for error in form.title.errors %}
+				<i>{{error}}</i>
 				{% endfor %}
 			</p>
-			<p>
-				<span>
-					<input type="submit" class="submit_btn" value="递交"/>
-				</span>
+			<p><font><b>*</b>内容：</font>
+				<textarea class="input_text" name="content">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
 			</p>
+			<p>
+				{% for error in form.content.errors %}
+				<i>{{error}}</i>
+				{% endfor %}
+			</p>
+			<p><b>*</b>秘密类别:
+				{% for item in msg_tags %}
+				<input type="radio" 
+							 class="checkbox" name="tag" 
+							 value="{{ item.text }}"
+							 {% if item.text == form.tag.value %}checked{% endif %}>
+				{{ item.text }}
+				{% endfor %}
+      </p>
+			<p>
+				{% for error in form.tag.errors %}
+				<i>{{error}}</i>
+				{% endfor %}
+			</p>
+			<!--
+					<p>
+						<input type="checkbox" />
+						匿名发表
+					</p>
+					-->
+			<p><span><input type="submit" value="提交" class="submit_btn" /></span></p>
 		</form>
 	</div>
 </div>

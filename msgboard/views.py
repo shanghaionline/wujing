@@ -10,7 +10,7 @@ from msgboard import forms
 # Create your views here.
 def list(request, page):
     contact_list = models.BoardMsg.objects.order_by('-created')
-    paginator = Paginator(contact_list, 2)
+    paginator = Paginator(contact_list, 20)
     try:
         contacts = paginator.page(page)
     except PageNotAnInteger:
