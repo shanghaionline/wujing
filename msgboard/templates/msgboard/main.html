@@ -15,37 +15,37 @@
 	<div class="block">
 		<div class="navbar">
 			<ul>
-				<li class="sele"><a href="">首页</a></li>
-				<li class="m1"><a href="">心闻播报</a></li>
-				<li class="m2"><a href="">心理百科</a></li>
-				<li class="m3"><a href="">心理测试</a></li>
-				<li class="m4"><a href="">心理论坛</a></li>
-				<li class="m5"><a href="">心海拾贝</a></li>
-				<li class="m6"><a href="">心灵有约</a></li>
+				<li class="sele"><a href="http://18.44.216.6/psycms">首页</a></li>
+				<li class="m1"><a href="http://18.44.216.6/psycms/pnews/index.htm">心闻播报</a></li>
+				<li class="m2"><a href="http://18.44.216.6/psycms/cyclopedia/index.htm">心理百科</a></li>
+				<li class="m3"><a href="http://18.44.216.6/psycms/ptest/index.htm">心理测试</a></li>
+				<li class="m4"><a href="http://18.44.216.6/bbs">心理论坛</a></li>
+				<li class="m5"><a href="#">心海拾贝</a></li>
+				<li class="m6"><a href="http://18.44.216.6/psycms/pheart/index.htm">心灵有约</a></li>
 			</ul>
 			<ul class="submenu s1">
-				<li><a href="">工作动态</a></li>
-				<li><a href="">领导讲话</a></li>
-				<li><a href="">政策法规</a></li>
-				<li><a href="">公告通知</a></li>
+				<li><a href="http://18.44.216.6/psycms/work/index.htm">工作动态</a></li>
+				<li><a href="http://18.44.216.6/psycms/boss/index.htm">领导讲话</a></li>
+				<li><a href="http://18.44.216.6/psycms/policy/index.htm">政策法规</a></li>
+				<li><a href="http://18.44.216.6/psycms/pnotes/index.htm">公告通知</a></li>
 			</ul>
 			<ul class="submenu s2">
-				<li><a href="">心理专题</a></li>
-				<li><a href="">心理知识</a></li>
-				<li><a href="">心理行为训练</a></li>
-				<li><a href="">经验交流</a></li>
-				<li><a href="">案例分析</a></li>
+				<li><a href="http://18.44.216.6/psycms/pzt/index.htm">心理专题</a></li>
+				<li><a href="http://18.44.216.6/psycms/pedu/index.htm">心理知识</a></li>
+				<li><a href="http://18.44.216.6/psycms/ptrain/index.htm">心理行为训练</a></li>
+				<li><a href="http://18.44.216.6/psycms/ptalk/index.htm">经验交流</a></li>
+				<li><a href="http://18.44.216.6/psycms/pfx/index.htm">案例分析</a></li>
 			</ul>
 			<ul class="submenu s3">
-				<li><a href="">心理测量</a></li>
-				<li><a href="">趣味测试</a></li>
+				<li><a href="http://18.44.216.6/psycms/cel/index.htm">心理测量</a></li>
+				<li><a href="http://18.44.216.6/psycms/qwcs/index.htm">趣味测试</a></li>
 			</ul>
 			<ul class="submenu s5">
 				<li><a href="{% url 'msgboard:list' 1 %}">树洞</a></li>
-				<li><a href="">照片墙</a></li>
-				<li><a href="">治愈系</a></li>
-				<li><a href="">心理游戏</a></li>
-				<li><a href="">心理影院</a></li>
+				<li><a href="http://18.44.216.6/psycms/fm/index.htm">照片墙</a></li>
+				<li><a href="http://18.44.216.6/psycms/humor/index.htm">治愈系</a></li>
+				<li><a href="http://18.44.216.6/psycms/wall/index.htm">心理游戏</a></li>
+				<li><a href="http://18.44.216.6/psycms/cure/index.htm">心理影院</a></li>
 			</ul>
 			{% if not user.is_authenticated %}
 			<div class="btn_login">
@@ -68,8 +68,7 @@
 			</div>
 			<div class="crumb">
 				<p>
-					<a href="index.html">首页</a> &gt; 
-					<a href="list.html">心海拾贝</a> &gt; 
+					<a href="http://18.44.216.6/psycms">首页</a> &gt; 
 					<a href="{% url 'msgboard:list' 1 %}">树洞</a>
 				</p>
 			</div>
@@ -82,10 +81,10 @@
 					<div class="menu_right">
 						<ul>
 							<li><a href="{% url 'msgboard:list' 1 %}" class="selected">树洞</a></li>
-							<li><a href="">照片墙</a></li>
-							<li><a href="">治愈系</a></li>
-							<li><a href="">心理游戏</a></li>
-							<li><a href="">心理影院</a></li>
+							<li><a href="http://18.44.216.6/psycms/fm/index.htm">照片墙</a></li>
+							<li><a href="http://18.44.216.6/psycms/humor/index.htm">治愈系</a></li>
+							<li><a href="http://18.44.216.6/psycms/wall/index.htm">心理游戏</a></li>
+							<li><a href="http://18.44.216.6/psycms/cure/index.htm">心理影院</a></li>
 						</ul>
 					</div>
 				</div>
